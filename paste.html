@@ -1,0 +1,37 @@
+<textarea id="pastebox" rows="25" cols="150"></textarea>
+<br>
+<input type="submit" value="save" id="submit" />
+<br><br>
+Created Pastes:
+<div id="pastes">
+</div>
+
+<script type="text/javascript" src="http://immut.io/blobs/1c5e3e92-34ac-49ac-aa16-2fd79e32c6c1"></script>
+<script>
+  function ready(fn) {
+    if (document.readyState != 'loading'){
+      fn();
+    } else {
+      document.addEventListener('DOMContentLoaded', fn);
+    }
+  }
+
+  ready(function () {
+    var im = new Immutio();
+
+    var submitBtn = document.getElementById("submit");
+    var pastebox = document.getElementById("pastebox");
+
+    submitBtn.addEventListener("click", function (e) {
+      im.store(pastebox.value, function (err, id) {
+        if(err) return alert(err);
+        var link = document.createElement("a")
+        link.innerHTML = id;
+        link.href = "http://immut.io/blobs/" + id;
+        link.target = "_blank";
+        link.style.display = "block";
+        document.getElementById("pastes").appendChild(link);
+      });
+    });
+  });
+</script>

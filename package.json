@@ -1,0 +1,16 @@
+{
+  "name": "immutio-paste",
+  "version": "0.0.1",
+  "description": "paste proof of concept",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "node index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "immutio-client": "0.0.2"
+  },
+  "private": true
+}
